@@ -45,9 +45,9 @@ python .\bethesda_mod_downloader.py "https://bethesda.net/en/mods/fallout4/mod-d
 
 ## Project files
 
-- `bethesda_mod_downloader.py` is the main script and contains the GUI.
-- `launch_bethesda_downloader.bat` starts the source version with Python.
-- `build_bethesda_downloader_exe.bat` builds the single-file Windows `.exe`.
+- `bethesda_mod_downloader.py` Is the script that handles everything. If you're not tech savy just ignore this.
+- `launch_bethesda_downloader.bat` starts the source version.
+- `build_bethesda_downloader_exe.bat` Most user friendly version. GUI included.
 
 ## Limits
 
