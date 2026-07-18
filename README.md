@@ -1,35 +1,37 @@
 # Dwwite Downloader
 
-Small downloader for public Bethesda.net and Creations links.
+This is a small tool for pulling public mods from Bethesda.net and Creations links without having to go through the in-game browser every time.
 
-## Files
-
-- `bethesda_mod_downloader.py` is the main script.
-- `launch_bethesda_downloader.bat` starts the source version of the GUI with Python.
-- `build_bethesda_downloader_exe.bat` bundles `bethesda_mod_downloader.py` and its GUI into a single-file Windows `.exe`.
+I originally made it for cases where you already know the mod you want, have the link or ID, and just want the files on disk as quickly as possible.
 
 ## What it does
 
-- Resolves old Bethesda mod links, newer Creations links, numeric IDs, and text searches.
-- Downloads public files for the selected platform.
-- Unpacks Bethesda `BTAR` `.ckm` containers into real mod files like `.esp`, `.ba2`, and `.ini`.
-- Writes a `manifest.json` for each downloaded mod.
+The downloader can take:
 
-## Quick Start
+- older `bethesda.net` mod links
+- newer `creations.bethesda.net` links
+- numeric mod IDs
+- plain text searches
 
-Single-file app:
+Once it finds the mod, it grabs the latest public file for the platform you selected. If Bethesda serves that download as a `.ckm` container, the tool automatically unpacks it into the real mod files like `.esp`, `.ba2`, and `.ini`, then writes a `manifest.json` so you can see exactly what was pulled.
+
+## Running it
+
+If you want the packaged app, build it and run the `.exe`:
 
 ```powershell
 .\dist\BethesdaModDownloader.exe
 ```
 
-The `.exe` already includes the Python downloader code and the GUI from `bethesda_mod_downloader.py`.
+That single `.exe` already includes the Python script and the GUI.
 
-Run the GUI:
+If you want to run it from source instead:
 
 ```powershell
 python .\bethesda_mod_downloader.py --gui
 ```
+
+You can also use it from the command line.
 
 List a mod without downloading:
 
@@ -43,16 +45,24 @@ Download a mod:
 python .\bethesda_mod_downloader.py "https://bethesda.net/en/mods/fallout4/mod-detail/4225788" --product fallout4 --platform WINDOWS
 ```
 
+## Project files
+
+- `bethesda_mod_downloader.py` is the main script and contains the GUI.
+- `launch_bethesda_downloader.bat` starts the source version with Python.
+- `build_bethesda_downloader_exe.bat` builds the single-file Windows `.exe`.
+
+## Limits
+
+This only works with file URLs Bethesda exposes publicly. Some creations, especially Verified Creator or library-gated ones, still have to be installed from the in-game Creations menu because Bethesda does not hand out a public download URL for them.
+
+Windows Defender may also complain about unsigned packaged builds. If that happens, and you do not trust the packaged app, use the Python source version instead.
+
 ## Releases
 
-- The repo keeps source only. Built app bundles should go in GitHub Releases, not in git.
-- A GitHub Actions workflow at `.github/workflows/release.yml` builds a single-file Windows `.exe`.
-- Run it manually from the Actions tab to get a downloadable artifact.
-- Push a tag like `v1.0.0` to build the app and attach `BethesdaModDownloader.exe` to a GitHub release.
+The repo stays source-only. Built apps should go in GitHub Releases, not in git.
 
-## Notes
+There is a GitHub Actions workflow at `.github/workflows/release.yml` that builds the Windows `.exe`. You can run it manually from the Actions tab, or push a tag like `v1.0.0` to build the app and attach `BethesdaModDownloader.exe` to a GitHub release automatically.
 
-- This downloader only works with public file URLs exposed by Bethesda.
-- Some Verified Creator or library-gated Creations still have to be installed from the in-game Creations menu.
-- Windows Defender may warn on unsigned packaged builds. If that happens, prefer reviewing or running the Python source directly.
-- Build output and downloaded mods are ignored by git in this repo.
+## Git notes
+
+Build output and downloaded mods are ignored in this repo, so it stays focused on the actual source.
