@@ -9,7 +9,7 @@ The downloader can take:
 - older `bethesda.net` mod links
 - newer `creations.bethesda.net` links
 - numeric mod IDs
-- plain text searches
+- plain text searches (you have to make the mod title exactly how it is might not work if theres 2 mods with the same name)
 
 Once it finds the mod, it grabs the latest public file for the platform you selected. If Bethesda serves that download as a `.ckm` container, the tool automatically unpacks it into the real mod files like `.esp`, `.ba2`, and `.ini`, then writes a `manifest.json` so you can see exactly what was pulled.
 
