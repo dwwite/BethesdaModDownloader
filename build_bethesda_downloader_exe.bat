@@ -19,7 +19,7 @@ call %PYTHON_CMD% -m PyInstaller ^
 
 if errorlevel 1 (
   echo Build failed.
-  pause
+  if not defined CI if not defined NO_PAUSE pause
   exit /b 1
 )
 
@@ -34,4 +34,4 @@ copy /Y "%SCRIPT_DIR%bethesda_mod_downloader_README.md" "%SCRIPT_DIR%dist\Bethes
 echo.
 echo App folder built at:
 echo   %SCRIPT_DIR%dist\BethesdaModDownloader
-pause
+if not defined CI if not defined NO_PAUSE pause

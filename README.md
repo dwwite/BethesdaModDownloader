@@ -35,6 +35,13 @@ Download a mod:
 python .\bethesda_mod_downloader.py "https://bethesda.net/en/mods/fallout4/mod-detail/4225788" --product fallout4 --platform WINDOWS
 ```
 
+## Releases
+
+- The repo keeps source only. Built app bundles should go in GitHub Releases, not in git.
+- A GitHub Actions workflow at `.github/workflows/release.yml` builds the Windows app folder and zips it.
+- Run it manually from the Actions tab to get a downloadable artifact.
+- Push a tag like `v1.0.0` to build the bundle and attach `BethesdaModDownloader-windows.zip` to a GitHub release.
+
 ## Notes
 
 - This downloader only works with public file URLs exposed by Bethesda.

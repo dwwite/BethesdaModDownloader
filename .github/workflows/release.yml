@@ -1,0 +1,52 @@
+name: Build Release Bundle
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build dependency
+        run: python -m pip install --upgrade pip pyinstaller
+
+      - name: Build app bundle
+        shell: cmd
+        env:
+          CI: "true"
+        run: build_bethesda_downloader_exe.bat
+
+      - name: Zip app bundle
+        shell: powershell
+        run: Compress-Archive -Path dist\BethesdaModDownloader -DestinationPath dist\BethesdaModDownloader-windows.zip -Force
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: BethesdaModDownloader-windows
+          path: dist\BethesdaModDownloader-windows.zip
+
+      - name: Publish GitHub release asset
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: powershell
+        run: |
+          $tag = "${{ github.ref_name }}"
+          $title = "BethesdaModDownloader $tag"
+          gh release create $tag "dist\BethesdaModDownloader-windows.zip" --title $title --notes "Windows app bundle for $tag"
