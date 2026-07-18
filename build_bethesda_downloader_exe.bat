@@ -9,6 +9,17 @@ if %errorlevel%==0 (
   set "PYTHON_CMD=python"
 )
 
+call %PYTHON_CMD% -m PyInstaller --version >nul 2>nul
+if errorlevel 1 (
+  echo PyInstaller was not found. Installing it now...
+  call %PYTHON_CMD% -m pip install pyinstaller
+  if errorlevel 1 (
+    echo Failed to install PyInstaller.
+    if not defined CI if not defined NO_PAUSE pause
+    exit /b 1
+  )
+)
+
 call %PYTHON_CMD% -m PyInstaller ^
   --noconfirm ^
   --clean ^
