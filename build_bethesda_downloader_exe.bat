@@ -12,7 +12,7 @@ if %errorlevel%==0 (
 call %PYTHON_CMD% -m PyInstaller ^
   --noconfirm ^
   --clean ^
-  --onedir ^
+  --onefile ^
   --windowed ^
   --name BethesdaModDownloader ^
   "%SCRIPT_DIR%bethesda_mod_downloader.py"
@@ -23,15 +23,7 @@ if errorlevel 1 (
   exit /b 1
 )
 
-if not exist "%SCRIPT_DIR%dist\BethesdaModDownloader\downloads" mkdir "%SCRIPT_DIR%dist\BethesdaModDownloader\downloads"
-copy /Y "%SCRIPT_DIR%bethesda_mod_downloader_README.md" "%SCRIPT_DIR%dist\BethesdaModDownloader\README.md" >nul
-(
-  echo @echo off
-  echo setlocal
-  echo start "" "%%~dp0BethesdaModDownloader.exe"
-) > "%SCRIPT_DIR%dist\BethesdaModDownloader\Launch Dwwite Downloader.bat"
-
 echo.
-echo App folder built at:
-echo   %SCRIPT_DIR%dist\BethesdaModDownloader
+echo Single-file app built at:
+echo   %SCRIPT_DIR%dist\BethesdaModDownloader.exe
 if not defined CI if not defined NO_PAUSE pause

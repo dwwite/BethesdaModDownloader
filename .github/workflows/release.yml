@@ -25,21 +25,17 @@ jobs:
       - name: Install build dependency
         run: python -m pip install --upgrade pip pyinstaller
 
-      - name: Build app bundle
+      - name: Build single-file app
         shell: cmd
         env:
           CI: "true"
         run: build_bethesda_downloader_exe.bat
 
-      - name: Zip app bundle
-        shell: powershell
-        run: Compress-Archive -Path dist\BethesdaModDownloader -DestinationPath dist\BethesdaModDownloader-windows.zip -Force
-
       - name: Upload workflow artifact
         uses: actions/upload-artifact@v4
         with:
           name: BethesdaModDownloader-windows
-          path: dist\BethesdaModDownloader-windows.zip
+          path: dist\BethesdaModDownloader.exe
 
       - name: Publish GitHub release asset
         if: startsWith(github.ref, 'refs/tags/v')
@@ -49,4 +45,4 @@ jobs:
         run: |
           $tag = "${{ github.ref_name }}"
           $title = "BethesdaModDownloader $tag"
-          gh release create $tag "dist\BethesdaModDownloader-windows.zip" --title $title --notes "Windows app bundle for $tag"
+          gh release create $tag "dist\BethesdaModDownloader.exe" --title $title --notes "Windows single-file app for $tag"

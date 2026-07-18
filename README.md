@@ -6,7 +6,7 @@ Small downloader for public Bethesda.net and Creations links.
 
 - `bethesda_mod_downloader.py` is the main script.
 - `launch_bethesda_downloader.bat` starts the GUI with Python.
-- `build_bethesda_downloader_exe.bat` builds the packaged Windows app folder.
+- `build_bethesda_downloader_exe.bat` builds a single-file Windows `.exe`.
 
 ## What it does
 
@@ -38,9 +38,9 @@ python .\bethesda_mod_downloader.py "https://bethesda.net/en/mods/fallout4/mod-d
 ## Releases
 
 - The repo keeps source only. Built app bundles should go in GitHub Releases, not in git.
-- A GitHub Actions workflow at `.github/workflows/release.yml` builds the Windows app folder and zips it.
+- A GitHub Actions workflow at `.github/workflows/release.yml` builds a single-file Windows `.exe`.
 - Run it manually from the Actions tab to get a downloadable artifact.
-- Push a tag like `v1.0.0` to build the bundle and attach `BethesdaModDownloader-windows.zip` to a GitHub release.
+- Push a tag like `v1.0.0` to build the app and attach `BethesdaModDownloader.exe` to a GitHub release.
 
 ## Notes
 
