@@ -5,8 +5,8 @@ Small downloader for public Bethesda.net and Creations links.
 ## Files
 
 - `bethesda_mod_downloader.py` is the main script.
-- `launch_bethesda_downloader.bat` starts the GUI with Python.
-- `build_bethesda_downloader_exe.bat` builds a single-file Windows `.exe`.
+- `launch_bethesda_downloader.bat` starts the source version of the GUI with Python.
+- `build_bethesda_downloader_exe.bat` bundles `bethesda_mod_downloader.py` and its GUI into a single-file Windows `.exe`.
 
 ## What it does
 
@@ -16,6 +16,14 @@ Small downloader for public Bethesda.net and Creations links.
 - Writes a `manifest.json` for each downloaded mod.
 
 ## Quick Start
+
+Single-file app:
+
+```powershell
+.\dist\BethesdaModDownloader.exe
+```
+
+The `.exe` already includes the Python downloader code and the GUI from `bethesda_mod_downloader.py`.
 
 Run the GUI:
 
