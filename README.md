@@ -1,4 +1,4 @@
-# Dwwite Downloader
+# BMD by dwwite
 
 This is a small tool for pulling public mods from Bethesda.net and Creations links. If you're a GOG user or a 🏴‍☠️ (i hope you arent) this mod is for you.
 
