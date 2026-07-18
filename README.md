@@ -1,8 +1,6 @@
 # Dwwite Downloader
 
-This is a small tool for pulling public mods from Bethesda.net and Creations links without having to go through the in-game browser every time.
-
-I originally made it for cases where you already know the mod you want, have the link or ID, and just want the files on disk as quickly as possible.
+This is a small tool for pulling public mods from Bethesda.net and Creations links. If you're a GOG user or a 🏴‍☠️ (i hope you arent) this mod is for you.
 
 ## What it does
 
