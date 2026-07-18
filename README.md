@@ -39,4 +39,5 @@ python .\bethesda_mod_downloader.py "https://bethesda.net/en/mods/fallout4/mod-d
 
 - This downloader only works with public file URLs exposed by Bethesda.
 - Some Verified Creator or library-gated Creations still have to be installed from the in-game Creations menu.
+- Windows Defender may warn on unsigned packaged builds. If that happens, prefer reviewing or running the Python source directly.
 - Build output and downloaded mods are ignored by git in this repo.
