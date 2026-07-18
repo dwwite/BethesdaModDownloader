@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+build/
+dist/
+downloads/
+*.log
+*.zip
+*.rar
+*.7z
+
