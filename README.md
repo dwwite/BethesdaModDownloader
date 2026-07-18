@@ -51,16 +51,6 @@ python .\bethesda_mod_downloader.py "https://bethesda.net/en/mods/fallout4/mod-d
 
 ## Limits
 
-This only works with file URLs Bethesda exposes publicly. Some creations, especially Verified Creator or library-gated ones, still have to be installed from the in-game Creations menu because Bethesda does not hand out a public download URL for them.
+This only works with file URLs Bethesda exposes publicly. Some creations, especially Verified Creator or library-gated ones, still have to be installed from the in-game Creations menu because Bethesda does not hand out a public download URL for them. And I am not gonna reverse engineer or get Bethesda's lawyers up my ass for giving people free access to paid mods
 
-Windows Defender may also complain about unsigned packaged builds. If that happens, and you do not trust the packaged app, use the Python source version instead.
-
-## Releases
-
-The repo stays source-only. Built apps should go in GitHub Releases, not in git.
-
-There is a GitHub Actions workflow at `.github/workflows/release.yml` that builds the Windows `.exe`. You can run it manually from the Actions tab, or push a tag like `v1.0.0` to build the app and attach `BethesdaModDownloader.exe` to a GitHub release automatically.
-
-## Git notes
-
-Build output and downloaded mods are ignored in this repo, so it stays focused on the actual source.
+Windows Defender may also flag unsigned packaged builds. If that happens, and you do not trust the packaged app, use the Python source version instead.
