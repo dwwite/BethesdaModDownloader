@@ -10,4 +10,4 @@ Then, click "Download latest" and the program will scan Bethesda's public API fo
 # Notes
 1. This only works with non verified free mods. Any mod that is paid, made by a verified user or a free mod that says it only needs 0 credits will not work. This is because (i think) these mods are hosted on Bethesda's backend. I am not gonna attempt accessing it because i dont want Bethesda's foot up my ass.
 2. Always check whether the mods work or not. .ckm files are kind of hard to work with so make sure to look out for any errors. 
-3. You might get a warning from Windows Defender. This is normal it's a false positive. Because of how it interacts, it will trigger a positive like that. 
+3. You might get a warning from Windows Defender. This is just a false positive. Defender tends to flag Python packages that are unsigned for whatever reasom.
